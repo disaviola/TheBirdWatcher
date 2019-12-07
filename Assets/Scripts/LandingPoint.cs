@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LandingPoint : MonoBehaviour
 {
-    //private bool isOccupied = false;
+    private bool occupied = false;
     public bool isOccupied
     {
-        get { return isOccupied; }
-        set { isOccupied = value; }
+        get { return occupied; }
+        set { occupied = value; }
     }
 
 }

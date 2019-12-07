@@ -7,6 +7,8 @@ public class Bird_LandOnAnyTrees : Bird
     private void Start()
     {
         AddLandingPoints();
+        transform.position = landingPoints[0].transform.position;
+        currentPoint = landingPoints[0];
     }
 
 

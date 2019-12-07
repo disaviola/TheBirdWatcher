@@ -8,6 +8,7 @@ public class Bird_LandOnLeafTrees : Bird
     private void Start()
     {
         AddLandingPoints();
+        transform.position = landingPoints[0].transform.position * Time.deltaTime;
     }
 
 
@@ -17,7 +18,7 @@ public class Bird_LandOnLeafTrees : Bird
         
         foreach(LandingPoint point in points)
         {
-            if (point.CompareTag("LeafTreePoint"))
+            if (point.CompareTag("TreeWithLeaves"))
             {
                 landingPoints.Add(point);
             }

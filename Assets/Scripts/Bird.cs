@@ -6,19 +6,23 @@ public class Bird : MonoBehaviour
 {
     private Animator animator;
 
+    private bool canBeDetected = true;
     private bool timerRunning = false;
+    private bool flying = false;
 
-    protected List<LandingPoint> landingPoints;
-    private LandingPoint currentPoint, newPoint;
+    [SerializeField] protected float flightSpeed = 5f;
 
-    private void Start()
+    protected List<LandingPoint> landingPoints = new List<LandingPoint>();
+    protected LandingPoint currentPoint, newPoint;
+
+    private void Awake()
     {
         animator = GetComponent<Animator>();
     }
 
     private void TestIfVisible()
     {
-        if (BirdDetecting.instance.CastFieldOfViewCone(transform.position))
+        if (canBeDetected && BirdDetecting.instance.CastFieldOfViewCone(transform.position))
         {          
             if (!timerRunning)
             {
@@ -31,6 +35,11 @@ public class Bird : MonoBehaviour
     private void Update()
     {
         TestIfVisible();
+        if (flying)
+        {
+            FlyToPoint();
+            
+        }
     }
 
     private IEnumerator WatchTimer()
@@ -40,6 +49,8 @@ public class Bird : MonoBehaviour
         if (BirdDetecting.instance.CastFieldOfViewCone(transform.position))
         {
             animator.SetTrigger("IsAlerted");
+            canBeDetected = false;
+            ChangeLandingPoint();
         }
         timerRunning = false;
     }
@@ -60,14 +71,38 @@ public class Bird : MonoBehaviour
                 newPoint = landingPoints[index - 1];
             }
         }
-        FlyToPoint();
-        currentPoint = newPoint;
+        Debug.Log(newPoint.transform.position);
+        currentPoint.isOccupied = false;
+        flying = true;
+        animator.SetBool("IsFlying", true);
+        
     }
 
     private void FlyToPoint()
     {
+        //this.transform.position += newPoint.transform.position * flightSpeed * Time.deltaTime;
+        transform.position = Vector3.Lerp(transform.position, newPoint.transform.position, flightSpeed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, newPoint.transform.position) < 2f)
+        {
+            flying = false;
+            animator.SetBool("IsFlying", false);
+            animator.SetBool("HasLanded", true);
+            currentPoint = newPoint;
+            currentPoint.isOccupied = true;
+            canBeDetected = true;
+        }
+    }
 
-        transform.position += newPoint.transform.position * Time.deltaTime;
+    private void OnDrawGizmos()
+    {
+        try
+        {
+            Gizmos.DrawSphere(newPoint.transform.position, 0.1f);
+        }
+        catch (System.NullReferenceException)
+        {
+
+        }
     }
 
 
