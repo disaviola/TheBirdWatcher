@@ -97,7 +97,12 @@ public class Bird : MonoBehaviour
     {
         try
         {
-            Gizmos.DrawSphere(newPoint.transform.position, 0.1f);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(newPoint.transform.position, 5f);
+            if (flying)
+            {
+                Gizmos.DrawLine(transform.position, newPoint.transform.position);
+            }
         }
         catch (System.NullReferenceException)
         {
