@@ -12,6 +12,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private bool invertX = false;
     [SerializeField] private bool invertY = false;
 
+    //Moves the camera upon click and drag of left mouse button. 
     private void LateUpdate()
     {
         if (Input.GetMouseButton(0))
