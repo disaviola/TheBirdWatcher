@@ -199,6 +199,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2040221806983178319, guid: f1b786074f19ba9488cee588f5b8a34c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d60ea89cdad510b4a91314aff9d2fa65, type: 2}
+    - target: {fileID: 2040221806983178319, guid: f1b786074f19ba9488cee588f5b8a34c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: e407b2e35155a8e4894c5146d9a5c05a, type: 2}
+    - target: {fileID: 2040221806983178319, guid: f1b786074f19ba9488cee588f5b8a34c,
+        type: 3}
+      propertyPath: m_SelectedEditorRenderState
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1b786074f19ba9488cee588f5b8a34c, type: 3}
 --- !u!1001 &617036136
@@ -453,6 +468,24 @@ Transform:
   m_Father: {fileID: 1736073853}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &750431881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4996223393587541938, guid: f1b786074f19ba9488cee588f5b8a34c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7112651722249713485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &750431882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750431881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94107910598f1f46808ebc4f24c53dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &923993514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7222144393717137873, guid: 4469c024bedb3834286450809d1ae6eb,
@@ -1124,7 +1157,7 @@ GameObject:
   - component: {fileID: 1664045796}
   - component: {fileID: 1664045795}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: BinocularView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

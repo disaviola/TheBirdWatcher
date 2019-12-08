@@ -8,6 +8,7 @@ public class CameraMovement : MonoBehaviour
     private float xAxis;
     private float yAxis;
 
+    [Header("Invert Camera Axes")]
     [SerializeField] private bool invertX = false;
     [SerializeField] private bool invertY = false;
 
