@@ -5,9 +5,9 @@ using UnityEngine;
 /* Class for detecting objects within the player's sight.
  * Detected objects are non-specified
  */
-public class BirdDetecting : MonoBehaviour
+public class ObjectDetecting : MonoBehaviour
 {
-    public static BirdDetecting instance;
+    public static ObjectDetecting instance;
 
     [SerializeField] private float fieldOfViewAngle = 45f;
 
@@ -27,6 +27,13 @@ public class BirdDetecting : MonoBehaviour
     //and the forward vector (look direction) of the player's position.
     //Gets the angle of distance between player and target from the acosine (inverse) of the cosine, and converts from radians to degrees for easier comparison/readability.
     //Returns true if distance angle is smaller than FOV angle, e.g the target point is within the specified field of view angle.
+
+        //point1 = hypotenuse
+        //point2 = adjacent side
+        //Dot product of point 1 & 2 returns cosine angle between target and player from the target's point of view
+        //Acosine of the cosine returns angle between target and player from the player's view
+        //if angle between target and player is smaller than FOV angle
+
     public bool CastFieldOfViewCone(Vector3 targetPoint)
     {
         point1 = (targetPoint - transform.position).normalized;

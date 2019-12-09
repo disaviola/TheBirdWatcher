@@ -18,7 +18,7 @@ public class LandingPoint : MonoBehaviour
     //Returns true if landing point is currently visible to the player.
     public bool TestIfVisible()
     {
-        if (BirdDetecting.instance.CastFieldOfViewCone(transform.position))
+        if (ObjectDetecting.instance.CastFieldOfViewCone(transform.position))
         {
             return true;    
         }

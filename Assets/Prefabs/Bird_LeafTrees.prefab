@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8708620327825814215}
   - component: {fileID: 1784658080373494535}
   - component: {fileID: 3434880445532008745}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Beak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 012d066c7c333244bbef71ab72c70b01, type: 2}
+  - {fileID: 2100000, guid: db6ea93f807891a48b58746969c34db3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,9 +102,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8221211925421634612}
   - component: {fileID: 6801256676352138606}
-  m_Layer: 0
-  m_Name: Bird
-  m_TagString: Untagged
+  - component: {fileID: 8951564524505124700}
+  m_Layer: 9
+  m_Name: Bird_LeafTrees
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,6 +144,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8951564524505124700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2471132038255667120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d415aa410efec7945b1a9e8bf6d0ba6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdPropertyData: {fileID: 11400000, guid: cb0958f2596fe4e4e9fd5e02c1d9d467, type: 2}
 --- !u!1 &2913575576647258282
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +169,7 @@ GameObject:
   - component: {fileID: 5420536411201098216}
   - component: {fileID: 6538770585283496278}
   - component: {fileID: 1463650866003559621}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +216,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 198fbdf14db302242a04d259f1a4cd75, type: 2}
+  - {fileID: 2100000, guid: 527e1dd1a65442e49a34a28d4f829f14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -248,7 +262,7 @@ GameObject:
   - component: {fileID: 2217068808402279367}
   - component: {fileID: 4993754283711478562}
   - component: {fileID: 1885087697188829540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wing_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,13 +276,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3178713690778473297}
-  m_LocalRotation: {x: -0.5455419, y: 0.8380836, z: -0.0000015571712, w: 0.0000024437904}
-  m_LocalPosition: {x: -0.69444937, y: 0, z: 0}
+  m_LocalRotation: {x: -0.69816387, y: 0.7159381, z: -0.0000010519917, w: 0.0000027000397}
+  m_LocalPosition: {x: -0.542, y: 0, z: 0}
   m_LocalScale: {x: 0.8658183, y: 0.10421356, z: 0.562851}
   m_Children: []
   m_Father: {fileID: 206751146533799145}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: -66.123}
+  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: -88.560005}
 --- !u!33 &2217068808402279367
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -294,7 +308,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 198fbdf14db302242a04d259f1a4cd75, type: 2}
+  - {fileID: 2100000, guid: 527e1dd1a65442e49a34a28d4f829f14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -340,7 +354,7 @@ GameObject:
   - component: {fileID: 5381315593456241690}
   - component: {fileID: 3841454993393474109}
   - component: {fileID: 1583226296184404820}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +400,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 012d066c7c333244bbef71ab72c70b01, type: 2}
+  - {fileID: 2100000, guid: db6ea93f807891a48b58746969c34db3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -432,7 +446,7 @@ GameObject:
   - component: {fileID: 7037026535596233365}
   - component: {fileID: 3783415958680975712}
   - component: {fileID: 8891964582021930479}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +493,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 012d066c7c333244bbef71ab72c70b01, type: 2}
+  - {fileID: 2100000, guid: db6ea93f807891a48b58746969c34db3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -525,7 +539,7 @@ GameObject:
   - component: {fileID: 7332486846108111240}
   - component: {fileID: 5191247749044425528}
   - component: {fileID: 3616257787242652496}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +585,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 198fbdf14db302242a04d259f1a4cd75, type: 2}
+  - {fileID: 2100000, guid: 527e1dd1a65442e49a34a28d4f829f14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -617,7 +631,7 @@ GameObject:
   - component: {fileID: 2574954868808615162}
   - component: {fileID: 725354965099793880}
   - component: {fileID: 2717791148196003646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +683,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 198fbdf14db302242a04d259f1a4cd75, type: 2}
+  - {fileID: 2100000, guid: 527e1dd1a65442e49a34a28d4f829f14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -715,7 +729,7 @@ GameObject:
   - component: {fileID: 7360700790877499292}
   - component: {fileID: 3968573935851034700}
   - component: {fileID: 758664659240502271}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +776,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 012d066c7c333244bbef71ab72c70b01, type: 2}
+  - {fileID: 2100000, guid: db6ea93f807891a48b58746969c34db3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -808,7 +822,7 @@ GameObject:
   - component: {fileID: 7405608250857055474}
   - component: {fileID: 2718562960710086688}
   - component: {fileID: 2464553644459299899}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wing_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,13 +836,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6062607603384060463}
-  m_LocalRotation: {x: -0, y: -0, z: -0.545542, w: 0.83808357}
-  m_LocalPosition: {x: 0.707084, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7155366, w: 0.69857526}
+  m_LocalPosition: {x: 0.53, y: 0, z: 0}
   m_LocalScale: {x: 0.8658177, y: 0.104213595, z: 0.56284994}
   m_Children: []
   m_Father: {fileID: 206751146533799145}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -66.123}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -91.374}
 --- !u!33 &7405608250857055474
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -854,7 +868,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 198fbdf14db302242a04d259f1a4cd75, type: 2}
+  - {fileID: 2100000, guid: 527e1dd1a65442e49a34a28d4f829f14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -900,7 +914,7 @@ GameObject:
   - component: {fileID: 1585829375008627950}
   - component: {fileID: 8698958870203215983}
   - component: {fileID: 5139027654180075972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,7 +960,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 012d066c7c333244bbef71ab72c70b01, type: 2}
+  - {fileID: 2100000, guid: db6ea93f807891a48b58746969c34db3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

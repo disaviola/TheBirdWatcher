@@ -9,10 +9,12 @@ public class Bird : MonoBehaviour
 {
     private Animator animator;
 
-    [Tooltip("The flight speed of the bird.")]
-    [SerializeField] protected float flightSpeed = 5f;
-    [Tooltip("The amount of time (in seconds) the bird needs to be observed by the player before it is alerted.")]
-    [SerializeField] private float observationTime = 1.5f;
+    //[Tooltip("The flight speed of the bird.")]
+    //[SerializeField] protected float flightSpeed = 5f;
+    //[Tooltip("The amount of time (in seconds) the bird needs to be observed by the player before it is alerted.")]
+    //[SerializeField] private float observationTime = 1.5f;
+
+    [SerializeField] protected BirdPropertyData birdPropertyData;
 
     #region Class behavior booleans
     private bool canBeDetected = true;
@@ -45,7 +47,7 @@ public class Bird : MonoBehaviour
     //Birds can only be detected while on a landing point.
     private void TestIfVisible()
     {
-        if (canBeDetected && BirdDetecting.instance.CastFieldOfViewCone(transform.position))
+        if (canBeDetected && ObjectDetecting.instance.CastFieldOfViewCone(transform.position))
         {          
             if (!timerRunning)
             {
@@ -61,8 +63,8 @@ public class Bird : MonoBehaviour
     private IEnumerator WatchTimer()
     {
         timerRunning = true;
-        yield return new WaitForSeconds(observationTime);
-        if (BirdDetecting.instance.CastFieldOfViewCone(transform.position))
+        yield return new WaitForSeconds(birdPropertyData.observationTime);
+        if (ObjectDetecting.instance.CastFieldOfViewCone(transform.position))
         {
             animator.SetTrigger("IsAlerted");
             canBeDetected = false;
@@ -99,10 +101,13 @@ public class Bird : MonoBehaviour
     //Once bird has landed, it can now be detected again.
     private void FlyToPoint()
     {
-        //this.transform.position += newPoint.transform.position * flightSpeed * Time.deltaTime;
+        
+        
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Flying"))
         {
-            transform.position = Vector3.Lerp(transform.position, newPoint.transform.position, flightSpeed * Time.deltaTime);
+            transform.LookAt(newPoint.transform.position);
+            //transform.position = Vector3.Lerp(transform.position, newPoint.transform.position, flightSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, newPoint.transform.position, birdPropertyData.flightSpeed * Time.deltaTime);
         }
         
         if (Vector3.Distance(transform.position, newPoint.transform.position) < 2f)

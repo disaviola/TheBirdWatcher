@@ -115,9 +115,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030463534387395190}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -96.1, y: 0, z: -100.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.3790965, y: 2.3790965, z: 2.3790965}
   m_Children:
   - {fileID: 9216824129591112403}
   - {fileID: 7492259873653676139}
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 2255656700464227084}
   - component: {fileID: 6111788740881878873}
   - component: {fileID: 1792128070966940904}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
