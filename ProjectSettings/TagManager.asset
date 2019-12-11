@@ -7,6 +7,8 @@ TagManager:
   - TreeWithoutLeaves
   - TreeWithLeaves
   - Bird
+  - Bird_Any
+  - Bird_Leaf
   layers:
   - Default
   - TransparentFX

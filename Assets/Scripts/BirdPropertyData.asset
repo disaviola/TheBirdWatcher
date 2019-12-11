@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910e3134a1d168c41b150c4ae27a92ee, type: 3}
   m_Name: BirdPropertyData
   m_EditorClassIdentifier: 
-  flightSpeed: 5
+  flightSpeed: 20
   observationTime: 1.5

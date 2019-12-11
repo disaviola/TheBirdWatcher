@@ -40,7 +40,7 @@ public class Bird : MonoBehaviour
         {
             FlyToPoint();
         }
-        UpdateNonVisiblePoints();
+        UpdateNonVisiblePoints();       
     }
 
     //Tests if the bird is visible to the player by checking if the bird is within the FOV range, and able to be detected.
@@ -77,21 +77,29 @@ public class Bird : MonoBehaviour
     private void ChangeLandingPoint()
     {       
         int index = Random.Range(0, nonVisiblePoints.Count);
-        newPoint = nonVisiblePoints[index];
-        if (newPoint.Equals(currentPoint) || newPoint.isOccupied)
+        try { 
+            newPoint = nonVisiblePoints[index];
+        }
+        //If no available non-visible trees, bird remains
+        catch (System.ArgumentOutOfRangeException)
+        {
+            return;
+        }
+        if (newPoint.Equals(currentPoint) || newPoint.isOccupied || newPoint.Targeted)
         {
             try
             {
                 newPoint = nonVisiblePoints[index + 1];
             }
-            catch (System.IndexOutOfRangeException)
+            catch (System.ArgumentOutOfRangeException)
             {
                 newPoint = nonVisiblePoints[index - 1];
             }
         }
-        Debug.Log(newPoint.transform.position);
         currentPoint.isOccupied = false;
+        currentPoint.Occupator = null;
         flying = true;
+        newPoint.Targeted = true;
         animator.SetBool("IsFlying", true);
         
     }
@@ -100,9 +108,7 @@ public class Bird : MonoBehaviour
     //Bird begins flight after the alert animation is finished and ends flight when within a short range of the landing point.
     //Once bird has landed, it can now be detected again.
     private void FlyToPoint()
-    {
-        
-        
+    {     
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Flying"))
         {
             transform.LookAt(newPoint.transform.position);
@@ -117,6 +123,8 @@ public class Bird : MonoBehaviour
             animator.SetTrigger("HasLanded");
             currentPoint = newPoint;
             currentPoint.isOccupied = true;
+            currentPoint.Occupator = this.gameObject;
+            currentPoint.Targeted = false;
             canBeDetected = true;
         }
     }
@@ -169,15 +177,19 @@ public class Bird : MonoBehaviour
         }
     }
 
-    public void UpdatePoints(LandingPoint point, bool remove)
+    //Finds a free landing point to spawn on
+    public void FlyToSpawn()
     {
-        if (remove && nonVisiblePoints.Contains(point))
+        foreach (LandingPoint point in landingPoints)
         {
-            nonVisiblePoints.Remove(point);
-        }
-        else if(!remove && !nonVisiblePoints.Contains(point))
-        {
-            nonVisiblePoints.Add(point);
+            if (!point.isOccupied && !point.Targeted)
+            {
+                transform.position = point.transform.position;
+                currentPoint = point;
+                point.isOccupied = true;
+                point.Occupator = this.gameObject;
+                break;
+            }
         }
     }
 }

@@ -30,17 +30,15 @@ public class ObjectDetecting : MonoBehaviour
 
         //point1 = hypotenuse
         //point2 = adjacent side
-        //Dot product of point 1 & 2 returns cosine angle between target and player from the target's point of view
-        //Acosine of the cosine returns angle between target and player from the player's view
-        //if angle between target and player is smaller than FOV angle
+        //Dot product of point 1 & 2 returns cosine angle between target and player from the target's point of view.
+        //Acosine of the cosine returns the angle between target and player from the player's point of view. This angle is converted from radians to degrees for easier comparison.
+        //Returns true if the angle between the target and the player is smaller than the specified FOV angle.
 
     public bool CastFieldOfViewCone(Vector3 targetPoint)
     {
         point1 = (targetPoint - transform.position).normalized;
         point2 = transform.forward;
-        Debug.Log(transform.forward);
         float cosAngle = Vector3.Dot(point1, point2);
- 
         float angle = Mathf.Acos(cosAngle) * Mathf.Rad2Deg;
         return angle < fieldOfViewAngle;
     }
@@ -50,25 +48,10 @@ public class ObjectDetecting : MonoBehaviour
     {
         try
         {
-            //Ray ray2 = new Ray(transform.position, transform.forward * 100);
-            //ray2.direction = ray2.direction * 1000f;
-            //Vector3 dir = Quaternion.Euler(0, 45f, 0) * transform.forward * 100;
-            //Ray ray3 = new Ray(transform.position, dir);
-            //Ray ray4 = new Ray(transform.position, Quaternion.Euler(0, -45f, 0) * transform.forward);
-            //ray3.direction = ray3.direction * 1000f;
-            //ray4.direction = ray4.direction * 1000f;
-
-
-            //Gizmos.color = Color.blue;           
-            //Gizmos.DrawRay(transform.position, transform.forward * 1000f);
             Gizmos.color = Color.red;
             Gizmos.DrawRay(transform.position, Quaternion.Euler(0, fieldOfViewAngle, 0) * transform.forward * 1000f);
             Gizmos.color = Color.yellow;
             Gizmos.DrawRay(transform.position, Quaternion.Euler(0, -fieldOfViewAngle, 0) * transform.forward * 1000f);
-
-            //Gizmos.color = Color.green;
-            //Gizmos.matrix = transform.localToWorldMatrix;
-            //Gizmos.DrawFrustum(transform.position, 6.5f, Camera.main.farClipPlane, Camera.main.nearClipPlane, 16.9f);
         }
         catch (System.NullReferenceException)
         {

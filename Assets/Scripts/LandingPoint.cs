@@ -5,6 +5,8 @@ using UnityEngine;
 public class LandingPoint : MonoBehaviour
 {
     private bool occupied = false;
+    private bool beingTargeted = false;
+    private GameObject occupator;
 
     //Gets and sets the current occupation status for this landing point.
     //Returns true if the point is occupied by any bird.
@@ -12,6 +14,18 @@ public class LandingPoint : MonoBehaviour
     {
         get { return occupied; }
         set { occupied = value; }
+    }
+
+    public bool Targeted
+    {
+        get { return beingTargeted; }
+        set { beingTargeted = value; }
+    }
+
+    public GameObject Occupator
+    {
+        get { return occupator; }
+        set { occupator = value; }
     }
 
     //Tests if the landing point is visible to the player by checking if it is within the FOV range.

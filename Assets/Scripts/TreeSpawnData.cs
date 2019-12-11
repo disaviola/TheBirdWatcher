@@ -11,7 +11,7 @@ public class TreeSpawnData : ScriptableObject
     public int numberOfTreesToSpawn;
     [Tooltip("Areas within the spawn range that the objects will spawn on.")]
     public LayerMask areaToSpawnOn;
-    [Tooltip("Objects will randomly spawn in a X by Z area and snap to the surface.")]
+    [Tooltip("Objects will randomly spawn in a X by Z area around center of map and snap to the surface.")]
     public int spawningRange_X, spawningRange_Z;
 
 }
