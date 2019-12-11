@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 910e3134a1d168c41b150c4ae27a92ee, type: 3}
-  m_Name: BirdPropertyData
+  m_Script: {fileID: 11500000, guid: e1c834112b2f11f468e8c2dee8ca811f, type: 3}
+  m_Name: BirdAsset_A
   m_EditorClassIdentifier: 
+  AnimController: {fileID: 9100000, guid: 207656479709b644ebb5136640a296c3, type: 2}
+  BirdColor: {r: 0, g: 0, b: 0, a: 0}
+  Behaviour: 0
   flightSpeed: 20
   observationTime: 1.5
+  BirdPrefab_A: {fileID: 5959538703772216454, guid: 4994845a38353ef448a6b4adcebfa8a4,
+    type: 3}

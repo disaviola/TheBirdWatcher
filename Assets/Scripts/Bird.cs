@@ -5,16 +5,16 @@ using UnityEngine;
 /* Base class for all behavior common to all birds.
  * Bird type specific behavior (such as which trees can be landed on) can be added in the deriving child classes.
 */
-public class Bird : MonoBehaviour
+public class BirdQ : MonoBehaviour
 {
     private Animator animator;
-
+    private float flightSpeed, observationTime;
     //[Tooltip("The flight speed of the bird.")]
     //[SerializeField] protected float flightSpeed = 5f;
     //[Tooltip("The amount of time (in seconds) the bird needs to be observed by the player before it is alerted.")]
     //[SerializeField] private float observationTime = 1.5f;
 
-    [SerializeField] protected BirdPropertyData birdPropertyData;
+    //[SerializeField] protected BirdPropertyData birdPropertyData;
 
     #region Class behavior booleans
     private bool canBeDetected = true;
@@ -47,6 +47,9 @@ public class Bird : MonoBehaviour
     //Birds can only be detected while on a landing point.
     private void TestIfVisible()
     {
+		if (!ObjectDetecting.instance)
+			return;
+
         if (canBeDetected && ObjectDetecting.instance.CastFieldOfViewCone(transform.position))
         {          
             if (!timerRunning)
@@ -63,7 +66,7 @@ public class Bird : MonoBehaviour
     private IEnumerator WatchTimer()
     {
         timerRunning = true;
-        yield return new WaitForSeconds(birdPropertyData.observationTime);
+        yield return new WaitForSeconds(observationTime);
         if (ObjectDetecting.instance.CastFieldOfViewCone(transform.position))
         {
             animator.SetTrigger("IsAlerted");
@@ -113,7 +116,7 @@ public class Bird : MonoBehaviour
         {
             transform.LookAt(newPoint.transform.position);
             //transform.position = Vector3.Lerp(transform.position, newPoint.transform.position, flightSpeed * Time.deltaTime);
-            transform.position = Vector3.MoveTowards(transform.position, newPoint.transform.position, birdPropertyData.flightSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, newPoint.transform.position, flightSpeed * Time.deltaTime);
         }
         
         if (Vector3.Distance(transform.position, newPoint.transform.position) < 2f)
@@ -192,4 +195,34 @@ public class Bird : MonoBehaviour
             }
         }
     }
+
+    public void SetProperties(float flightSpeed, float observationTime)
+    {
+            this.flightSpeed = flightSpeed;
+            this.observationTime = observationTime;
+    }
+
+	public void SetBehaviourLandOnAnyTrees ()
+	{
+		LandingPoint[] points = FindObjectsOfType<LandingPoint>();
+
+		foreach (LandingPoint point in points)
+		{
+			landingPoints.Add(point);
+		}
+		//Debug.Log("Setting Behaviour: Land On All Trees" + landingPoints.Count + " | " + gameObject.name);
+	}
+
+	public void SetBehaviourLandOnTreesWithLeaves()
+	{
+		LandingPoint[] points = FindObjectsOfType<LandingPoint>();
+
+		foreach (LandingPoint point in points)
+		{
+			if (point.CompareTag("TreeWithLeaves"))
+			{
+				landingPoints.Add(point);
+			}
+		}
+	}
 }
