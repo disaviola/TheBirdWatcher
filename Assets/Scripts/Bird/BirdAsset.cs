@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.Animations;
+using UnityEngine.Animations;
 
 //Drop-down behaviour picker to set bird behaviour.
 public enum BirdBehaviour
@@ -15,7 +15,7 @@ public enum BirdBehaviour
 [CreateAssetMenu(fileName = "BirdAsset", menuName = "ScriptableObjects/BirdAsset")]
 public class BirdAsset : ScriptableObject
 {
-	public AnimatorController AnimController;
+	public RuntimeAnimatorController AnimController;
 	public Color BirdColor;
 	public BirdBehaviour Behaviour;
     [Tooltip("The flight speed of the bird.")]
