@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.Animations;
 
+//Drop-down behaviour picker to set bird behaviour.
 public enum BirdBehaviour
 {
 	LandOnTreesWLeaves,
 	LandOnAll
 }
 
+//Bird asset creator. Used for creating different kinds of birds with different properties and behaviours.
 [CreateAssetMenu(fileName = "BirdAsset", menuName = "ScriptableObjects/BirdAsset")]
 public class BirdAsset : ScriptableObject
 {
@@ -20,5 +22,5 @@ public class BirdAsset : ScriptableObject
     public float flightSpeed = 5f;
     [Tooltip("The amount of time (in seconds) the bird needs to be observed by the player before it is alerted.")]
     public float observationTime = 1.5f;
-    public GameObject BirdPrefab_A;
+    public GameObject BirdPrefab;
 }

@@ -17,5 +17,5 @@ MonoBehaviour:
   Behaviour: 1
   flightSpeed: 20
   observationTime: 1.5
-  BirdPrefab_A: {fileID: 5959538703772216454, guid: 4994845a38353ef448a6b4adcebfa8a4,
+  BirdPrefab: {fileID: 5959538703772216454, guid: 4994845a38353ef448a6b4adcebfa8a4,
     type: 3}
