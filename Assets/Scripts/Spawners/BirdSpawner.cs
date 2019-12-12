@@ -16,6 +16,7 @@ public class BirdSpawner : MonoBehaviour
         SpawnBirds();
 	}
 
+    //Spawns birds and moves them to starting positions
     public void SpawnBirds()
     {
             int spawnCount1 = 0, spawnCount2 = 0;
@@ -25,7 +26,7 @@ public class BirdSpawner : MonoBehaviour
                 var newBird = Instantiate(BirdAsset_A.BirdPrefab);
                 var newBirdMeshes = newBird.GetComponentsInChildren<MeshRenderer>();
                 SetBirdColor(newBirdMeshes, BirdAsset_A);
-                var birdScript = newBird.AddComponent<BirdQ>();
+                var birdScript = newBird.AddComponent<Bird>();
                 birdScript.SetProperties(BirdAsset_A.flightSpeed, BirdAsset_A.observationTime);
 
                 switch
@@ -52,7 +53,7 @@ public class BirdSpawner : MonoBehaviour
                 var newBird = Instantiate(BirdAsset_B.BirdPrefab);
                 var newBirdMeshes = newBird.GetComponentsInChildren<MeshRenderer>();
                 SetBirdColor(newBirdMeshes, BirdAsset_B);
-                var birdScript = newBird.AddComponent<BirdQ>();
+                var birdScript = newBird.AddComponent<Bird>();
                 birdScript.SetProperties(BirdAsset_B.flightSpeed, BirdAsset_B.observationTime);
 
                 switch
@@ -78,11 +79,11 @@ public class BirdSpawner : MonoBehaviour
             {
                 if (bird.CompareTag("Bird_Any"))
                 {
-                    bird.GetComponent<BirdQ>().FlyToSpawn();
+                    bird.GetComponent<Bird>().FlyToSpawn();
                 }
                 else if (bird.CompareTag("Bird_Leaf"))
                 {
-                    bird.GetComponent<BirdQ>().FlyToSpawn();
+                    bird.GetComponent<Bird>().FlyToSpawn();
                 }
             }
         }

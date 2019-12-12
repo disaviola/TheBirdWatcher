@@ -32,7 +32,6 @@ public class ObjectDetecting : MonoBehaviour
     /// <returns>
     /// Returns true if the angle between the target and the player is smaller than the specified FOV angle.
     /// </returns>
-
     public bool CastFieldOfViewCone(Vector3 targetPoint)
     {
         directionToTarget = (targetPoint - transform.position).normalized;

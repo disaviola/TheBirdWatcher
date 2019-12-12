@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class TreeSpawner : MonoBehaviour
 {
-    //[SerializeField] private TreeSpawnData treeSpawnData;
     public GameObject[] prefabs;
-    [Tooltip("Number of objects to spawn initially. Objects spawn randomly, objects not spawning on the correct areas will be destroyed.")]
+    [Tooltip("Number of trees to spawn. Trees spawn randomly within spawn area, trees not spawning on the specified layer objects will be destroyed.")]
     public int numberOfTreesToSpawn;
-    [Tooltip("Areas within the spawn range that the objects will spawn on.")]
+    [Tooltip("Objects within the spawn range that the trees will spawn on.")]
     public LayerMask areaToSpawnOn;
     [Tooltip("Objects will randomly spawn in a X by Z area around center of map and snap to the surface.")]
     public int spawningRange_X, spawningRange_Z;
-
-
-    //private GameObject[] treePrefabs; //birdPrefabs;
 
     void Awake()
     {
@@ -50,50 +46,7 @@ public class TreeSpawner : MonoBehaviour
             }
             spawnCount++;
         }
-        //SpawnBirds();
     }
-
-    //Spawns correct amount of birds and transports them to free landing points.
-    //private void SpawnBirds()
-    //{
-    //    int spawnAmount1 = birdSpawnData.numberOfAnyTreeBirdsToSpawn;
-    //    int spawnAmount2 = birdSpawnData.numberOfAnyTreeBirdsToSpawn;
-    //    int spawnCount1 = 0, spawnCount2 = 0;
-
-    //    while(spawnCount1 < spawnAmount1)
-    //    {
-    //        GameObject objectToSpawn = birdPrefabs[0];
-
-    //        objectToSpawn = Instantiate(objectToSpawn, Vector3.zero, Quaternion.identity);
-
-    //        objectToSpawn.name = objectToSpawn.name + spawnCount1;
-    //        Birds.Add(objectToSpawn);
-    //        spawnCount1++;
-    //    }
-    //    while (spawnCount2 < spawnAmount2)
-    //    {
-    //        GameObject objectToSpawn = birdPrefabs[1];
-
-    //        objectToSpawn = Instantiate(objectToSpawn, Vector3.zero, Quaternion.identity);
-
-    //        objectToSpawn.name = objectToSpawn.name + spawnCount2;
-    //        Birds.Add(objectToSpawn);
-    //        spawnCount2++;
-    //    }
-    //    foreach(GameObject bird in Birds)
-    //    {
-    //        if (bird.CompareTag("Bird_Any"))
-    //        {
-    //            bird.GetComponent<Bird_LandOnAnyTrees>().AddLandingPoints();
-    //            bird.GetComponent<Bird_LandOnAnyTrees>().FlyToSpawn();
-    //        } else if (bird.CompareTag("Bird_Leaf"))
-    //        {
-    //            bird.GetComponent<Bird_LandOnLeafTrees>().AddLandingPoints();
-    //            bird.GetComponent<Bird_LandOnLeafTrees>().FlyToSpawn();
-    //        }
-    //    }
-
-    //}
 
     //Draws the tree spawning area
     private void OnDrawGizmos()

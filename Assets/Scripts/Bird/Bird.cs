@@ -2,19 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Base class for all behavior common to all birds.
- * Bird type specific behavior (such as which trees can be landed on) can be added in the deriving child classes.
-*/
-public class BirdQ : MonoBehaviour
+// Class for bird behaviour.
+public class Bird : MonoBehaviour
 {
     private Animator animator;
     private float flightSpeed, observationTime;
-    //[Tooltip("The flight speed of the bird.")]
-    //[SerializeField] protected float flightSpeed = 5f;
-    //[Tooltip("The amount of time (in seconds) the bird needs to be observed by the player before it is alerted.")]
-    //[SerializeField] private float observationTime = 1.5f;
-
-    //[SerializeField] protected BirdPropertyData birdPropertyData;
 
     #region Class behavior booleans
     private bool canBeDetected = true;
@@ -152,12 +144,6 @@ public class BirdQ : MonoBehaviour
         }
     }
 
-    //Virtual method to be overridden by deriving child classes.
-    public virtual void AddLandingPoints()
-    {
-
-    }
-
     //Updates the list of currently non-visible landing points.
     protected void UpdateNonVisiblePoints()
     {
@@ -202,7 +188,8 @@ public class BirdQ : MonoBehaviour
             this.observationTime = observationTime;
     }
 
-	public void SetBehaviourLandOnAnyTrees ()
+    //Sets behaviour and adds all possible landing points
+    public void SetBehaviourLandOnAnyTrees ()
 	{
 		LandingPoint[] points = FindObjectsOfType<LandingPoint>();
 
@@ -210,10 +197,10 @@ public class BirdQ : MonoBehaviour
 		{
 			landingPoints.Add(point);
 		}
-		//Debug.Log("Setting Behaviour: Land On All Trees" + landingPoints.Count + " | " + gameObject.name);
 	}
 
-	public void SetBehaviourLandOnTreesWithLeaves()
+    //Sets behaviour and adds all possible landing points
+    public void SetBehaviourLandOnTreesWithLeaves()
 	{
 		LandingPoint[] points = FindObjectsOfType<LandingPoint>();
 

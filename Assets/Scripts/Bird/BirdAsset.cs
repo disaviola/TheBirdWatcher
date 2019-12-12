@@ -11,7 +11,7 @@ public enum BirdBehaviour
 	LandOnAll
 }
 
-//Bird asset creator. Used for creating different kinds of birds with different properties and behaviours.
+//Bird asset creator. Used for creating different kinds of bird assets with different properties and behaviours.
 [CreateAssetMenu(fileName = "BirdAsset", menuName = "ScriptableObjects/BirdAsset")]
 public class BirdAsset : ScriptableObject
 {
